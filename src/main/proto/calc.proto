@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "uk.me.uohiro.grpc.example.model";
+option java_outer_classname = "CalcProto";
+
+package calc;
+
+service Calc {
+	rpc Add (AddRequest) returns (IntResponse);
+	rpc Sum (SumRequest) returns (IntResponse);
+}
+
+message IntResponse {
+	int32 value = 1;
+}
+
+message AddRequest {
+	int32 x = 1;
+	int32 y = 2;
+}
+
+message SumRequest {
+	repeated int32 values = 1;
+}
